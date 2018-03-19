@@ -1,0 +1,15 @@
+{% import "./macros.njk" as forms %}
+<div class="title">
+    Register Form
+</div>
+<div class="box">
+    <div class="box-inner">
+        <form>
+            {{ forms.field('user', 'Username') }}
+
+            {{ forms.field('lock', 'Password') }}
+
+            {{ forms.field('lock', 'Confirm Password') }}
+        </form>
+    </div>
+</div>

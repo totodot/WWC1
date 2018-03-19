@@ -1,0 +1,8 @@
+{% macro field(name='user', placeholder='placeholder') %}
+<div class="element">
+    <div class="icon">
+        {% include "./svg/" + name + ".svg" %}
+    </div>
+  <input type="{{ type }}" placeholder="{{placeholder}}" />
+</div>
+{% endmacro %}
