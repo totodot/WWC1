@@ -1,8 +1,47 @@
-{% macro field(name='user', placeholder='placeholder') %}
+{% macro field(name='user', placeholder='placeholder', type='text') %}
 <div class="element">
     <div class="icon">
         {% include "./svg/" + name + ".svg" %}
     </div>
-  <input type="{{ type }}" placeholder="{{placeholder}}" />
+    <div class="input-wrapper">
+        <input type="{{ type }}" placeholder="{{ placeholder }}" name="{{ name }}" required />
+    </div>
 </div>
+{% endmacro %}
+
+{% macro textarea(name='user', placeholder='placeholder') %}
+<div class="textarea">
+    <textarea name="{{ name }}" required>{{ placeholder}}</textarea>
+</div>
+{% endmacro %}
+
+{% macro select(name='user', placeholder='placeholder', options='') %}
+<div class="element">
+    <div class="icon">
+        {% include "./svg/" + name + ".svg" %}
+    </div>
+    <div class="select-wrapper">
+        <select name="{{ name }}" required>
+            <option value="" disabled selected hidden>{{ placeholder }}</option>
+             {% for option in options  %}
+                <option value="{{ Option }}">{{option}}</option> 
+             {% endfor %}
+        </select>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro checkbox(name='', text='Checkbox text') %}
+    <div class="checkbox-wrapper">
+        <label> 
+            {{text}} 
+            <input type="checkbox" name="{{ name }}" id="{{ name }}" value="true" required/>
+            <span class="checkmark"></span>
+        </label>
+    </div>
+{% endmacro %}
+
+{% macro button(text='Click') %}
+<button type="submit">{{text}}</button>
 {% endmacro %}

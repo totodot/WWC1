@@ -7,9 +7,17 @@
         <form>
             {{ forms.field('user', 'Username') }}
 
-            {{ forms.field('lock', 'Password') }}
+            {{ forms.field('lock', 'Password', 'password') }}
 
-            {{ forms.field('lock', 'Confirm Password') }}
+            {{ forms.field('lock', 'Confirm Password', 'password') }}
+
+            {{ forms.field('email', 'Email', 'email') }}
+
+            {{ forms.select('location', 'Your Location', ['Cracow', 'Warsaw']) }}
+    
+            {{ forms.checkbox('agree', 'I have read and accept the terms of use.') }}
+
+            {{ forms.button('Sign Up') }}
         </form>
     </div>
 </div>

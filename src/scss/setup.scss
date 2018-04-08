@@ -2,6 +2,7 @@
 
 html {
   font-size: 10px;
+  color: white;
 }
 
 body {
@@ -32,6 +33,7 @@ body {
     .box {
       background: rgba($color-black, 0.25);
       border-radius: $border-radius;
+      margin-bottom: 2rem;
       padding: $padding-default;
 
       &-inner {
@@ -45,18 +47,13 @@ body {
 
 form {
   .element {
-    width: 100%;
-    height: 40px;
-    border: 1px solid $color-grey;
-    border-radius: $border-radius;
-    box-sizing: border-box;
-    margin-bottom: 2rem;
-    padding: 0.5rem;
-    padding-left: 0;
     display: flex;
+    height: 40px;
+    @include field;
 
     .icon {
       display: flex;
+      margin-left: -0.5rem;
       justify-content: center;
       align-items: center;
       width: 50px;
@@ -64,19 +61,133 @@ form {
 
       svg {
         flex: 1;
-        height: 90%;
+        height: 75%;
         fill: $color-grey-light;
       }
     }
-    input {
-      font-size: 1.5rem;
-      flex: 1;
+
+    .input-wrapper,
+    .select-wrapper {
       margin-left: 1rem;
+      flex: 1;
+    }
+
+    input,
+    select {
+      @include input;
+    }
+
+    select {
+      position: relative;
+      -webkit-appearance: none;
+
+      &::-ms-expand {
+        display: none;
+      }
+    }
+
+    .select-wrapper {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid $color-grey-light;
+
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .textarea {
+    @include field;
+    height: 150px;
+
+    textarea {
+      font-family: "Lato", sans-serif;
+      @include input;
+    }
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+    margin-bottom: 2rem;
+
+    label {
+      display: flex;
+      align-items: center;
+      min-height: 25px;
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      font-size: 1.5rem;
       color: $color-grey-dark;
-      outline: none;
-      border: none;
-      box-sizing: border-box;
-      height: 100%;
+
+      input {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked ~ .checkmark {
+          &::after {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }
+
+      .checkmark {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        border: 1px solid $color-grey;
+        border-radius: $border-radius;
+
+        &::after {
+          content: "";
+          position: "absolute";
+          width: 13px;
+          height: 13px;
+          border-radius: 2px;
+          background: $gradient-green;
+          transform: scale(0);
+          opacity: 0;
+          transition: all 0.2s;
+        }
+      }
+    }
+  }
+
+  button {
+    height: $button-height;
+    width: 100%;
+    border-radius: $border-radius;
+    outline: 0;
+    padding: 0;
+    border: 1px solid $color-green-dark;
+    background: $gradient-green;
+
+    font-size: 2.4rem;
+    color: white;
+
+    text-shadow: 1px 1px $color-green-dark;
+    box-shadow: 0 1px $color-green-dark;
+    transition: all 0.15s;
+
+    &:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 $color-green-dark;
     }
   }
 }

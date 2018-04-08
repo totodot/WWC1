@@ -1,7 +1,42 @@
-$color-white: #fff;
+$color-white: #f4f4f4;
 $color-black: #000;
 $color-grey-light: #dedede;
 $color-grey: #c6c6c6;
+$color-placeholder: #afafaf;
 $color-grey-dark: #7c7c7c;
+
+$color-green-light: #a3d840;
+$color-green: #7fc41f;
+$color-green-dark: #3a9a00;
+$gradient-green: linear-gradient($color-green-light, $color-green);
+
 $border-radius: 5px;
 $padding-default: 2rem;
+
+$button-height: 48px;
+
+@mixin field {
+  width: 100%;
+  border: 1px solid $color-grey;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  background: linear-gradient(transparent, rgba($color-grey, 0.1));
+  box-shadow: 0px 1px 0px white;
+}
+
+@mixin input {
+  width: 100%;
+  font-size: 1.5rem;
+  color: $color-grey-dark;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  height: 100%;
+  background: none;
+
+  &::placeholder {
+    color: $color-placeholder;
+  }
+}
