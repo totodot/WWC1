@@ -1,0 +1,23 @@
+{% import "./macros.njk" as forms %}
+<div class="title">
+    Recover Form
+</div>
+<div class="box">
+    <div class="box-inner">
+        <form>
+            {{ forms.field('email', 'Enter your Email', 'email') }}
+
+            {{ forms.field('phone', 'Eneter your Phone number') }}
+            
+            <div class="row">
+                <div class="flex-1">
+                    {{ forms.button('Sign In') }}
+                </div>
+                <div class="flex-1">
+                    {{ forms.button('Done', true) }}
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>

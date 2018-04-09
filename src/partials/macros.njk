@@ -10,7 +10,8 @@
 {% endmacro %}
 
 {% macro textarea(name='user', placeholder='placeholder') %}
-<div class="textarea">
+
+<div class="element text">
     <textarea name="{{ name }}" required>{{ placeholder}}</textarea>
 </div>
 {% endmacro %}
@@ -32,8 +33,8 @@
 {% endmacro %}
 
 
-{% macro checkbox(name='', text='Checkbox text') %}
-    <div class="checkbox-wrapper">
+{% macro checkbox(name='', text='Checkbox text', class='') %}
+    <div class="checkbox-wrapper {{class}}">
         <label> 
             {{text}} 
             <input type="checkbox" name="{{ name }}" id="{{ name }}" value="true" required/>
@@ -42,6 +43,15 @@
     </div>
 {% endmacro %}
 
-{% macro button(text='Click') %}
-<button type="submit">{{text}}</button>
+{% macro button(text='Click', disabled=false, danger=false) %}
+<button
+    class="{% if danger %}danger{% endif %}"
+    type="submit"
+    {% if disabled %}
+    disabled
+    {% endif %}
+>
+    {{text}}
+</button>
+
 {% endmacro %}

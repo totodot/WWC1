@@ -1,0 +1,24 @@
+$flex-margin: 20px;
+
+.row {
+  display: flex;
+  align-items: center;
+
+  div[class^="flex-"] {
+    margin: 0 $flex-margin;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @for $i from 1 through 12 {
+    .flex-#{$i} {
+      flex: $i;
+    }
+  }
+}

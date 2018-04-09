@@ -10,6 +10,11 @@ $color-green: #7fc41f;
 $color-green-dark: #3a9a00;
 $gradient-green: linear-gradient($color-green-light, $color-green);
 
+$color-red-light: #f65e6f;
+$color-red: #f03848;
+$color-red-dark: #a72c36;
+$gradient-red: linear-gradient($color-red-light, $color-red);
+
 $border-radius: 5px;
 $padding-default: 2rem;
 
@@ -37,6 +42,6 @@ $button-height: 48px;
   background: none;
 
   &::placeholder {
-    color: $color-placeholder;
+    color: $color-grey-dark;
   }
 }
