@@ -12,7 +12,7 @@
 
 <body>
 
-    <div class="container">
+    {# <div class="container">
         <div class="column">
 
             {% include "./partials/_registerForm.njk" %}
@@ -27,6 +27,36 @@
             {% include "./partials/_recoverForm.njk" %}
 
             {% include "./partials/_subscribeForm.njk" %}
+        </div>
+    </div> #}
+    <div class="container">
+        <div class="row justify-center">
+            <div class="logo">
+                <img src="./images/logoMain.png" />
+            </div> 
+        </div>
+        <div class="row">
+            <div class="flex-1">
+
+                {% include "./partials/_registerForm.njk" %}
+
+                {% include "./partials/_sendEmail.njk" %}
+            </div>
+
+            <div class="flex-1">
+
+                {% include "./partials/_signInForm.njk" %}
+
+                {% include "./partials/_recoverForm.njk" %}
+
+                {% include "./partials/_subscribeForm.njk" %}
+
+                <div class="row justify-center">
+                    <div class="logo">
+                        <img src="./images/logoFooter.png" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

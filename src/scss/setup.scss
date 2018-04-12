@@ -17,35 +17,30 @@ body {
   margin: 0 !important;
 }
 
-.container {
-  padding: 50px;
-  display: flex;
-  flex-direction: row;
-  .column {
-    flex: 1;
-    margin: 20px;
+.logo {
+  margin: 20px 0;
+  opacity: 0.5;
+}
 
-    .title {
-      font-size: 3.2rem;
-      font-weight: bold;
-      text-align: center;
-      color: $color-white;
-      margin-bottom: 2rem;
-      text-shadow: 0 2px 10px rgba($color-black, 0.5);
-    }
+.title {
+  font-size: 3.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: $color-white;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 10px rgba($color-black, 0.5);
+}
 
-    .box {
-      background: rgba($color-black, 0.25);
-      border-radius: $border-radius;
-      margin-bottom: 2rem;
-      padding: $padding-default;
+.box {
+  background: rgba($color-black, 0.25);
+  border-radius: $border-radius;
+  margin-bottom: 2rem;
+  padding: $padding-default;
 
-      &-inner {
-        background: $color-white;
-        border-radius: $border-radius;
-        padding: $padding-default;
-      }
-    }
+  &-inner {
+    background: $color-white;
+    border-radius: $border-radius;
+    padding: $padding-default;
   }
 }
 
@@ -130,9 +125,19 @@ form {
       font-size: 1.5rem;
       color: $color-grey-dark;
 
-      input {
+      input,
+      .checkmark {
         position: absolute;
         top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        margin: 0;
+      }
+
+      input {
+        position: absolute;
+
         opacity: 0;
         cursor: pointer;
 
@@ -145,15 +150,11 @@ form {
       }
 
       .checkmark {
-        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
-        top: 0;
-        left: 0;
-        height: 25px;
-        width: 25px;
+
         border: 1px solid $color-grey;
         border-radius: $border-radius;
 

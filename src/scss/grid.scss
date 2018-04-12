@@ -1,24 +1,43 @@
+$container-width: 920px;
 $flex-margin: 20px;
 
-.row {
-  display: flex;
-  align-items: center;
+//sizes
 
-  div[class^="flex-"] {
-    margin: 0 $flex-margin;
+$flex-medium: 860px;
 
-    &:first-child {
-      margin-left: 0;
+.container {
+  max-width: $container-width;
+  margin: 20px auto;
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    div[class^="flex-"] {
+      margin: 0 $flex-margin;
+      flex-basis: auto;
+      // &:first-child {
+      //   margin-left: 0;
+      // }
+
+      // &:last-child {
+      //   margin-right: 0;
+      // }
     }
 
-    &:last-child {
-      margin-right: 0;
+    @for $i from 1 through 12 {
+      .flex-#{$i} {
+        flex: $i;
+      }
+    }
+
+    &.align-center {
+      align-items: center;
+    }
+    &.justify-center {
+      justify-content: center;
     }
   }
+}
 
-  @for $i from 1 through 12 {
-    .flex-#{$i} {
-      flex: $i;
-    }
-  }
+@media only screen and (max-width: $flex-medium) {
 }
